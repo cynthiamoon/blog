@@ -51,15 +51,19 @@
 
 
 
-<meta name="description" content="The two most powerful warriors are patience and time">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Eye on World">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="开始学Android时，需要调用API进行网络通信，一直没有个完本，很忧伤~~~
+HttpClient发送HTTP请求独立线程ThreadPOST方式1234567891011121314151617181920212223$	import org.apache.http.HttpEntity;$	import org.apache.http.HttpResponse;$	import org.a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RESTful API">
+<meta property="og:url" content="http://yoursite.com/2015/12/22/RESTful-API/index.html">
 <meta property="og:site_name" content="Eye on World">
-<meta property="og:description" content="The two most powerful warriors are patience and time">
+<meta property="og:description" content="开始学Android时，需要调用API进行网络通信，一直没有个完本，很忧伤~~~
+HttpClient发送HTTP请求独立线程ThreadPOST方式1234567891011121314151617181920212223$	import org.apache.http.HttpEntity;$	import org.apache.http.HttpResponse;$	import org.a">
+<meta property="og:updated_time" content="2015-12-22T07:17:53.616Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Eye on World">
-<meta name="twitter:description" content="The two most powerful warriors are patience and time">
+<meta name="twitter:title" content="RESTful API">
+<meta name="twitter:description" content="开始学Android时，需要调用API进行网络通信，一直没有个完本，很忧伤~~~
+HttpClient发送HTTP请求独立线程ThreadPOST方式1234567891011121314151617181920212223$	import org.apache.http.HttpEntity;$	import org.apache.http.HttpResponse;$	import org.a">
 
 
 
@@ -71,7 +75,7 @@
   };
 </script>
 
-  <title> Eye on World </title>
+  <title> RESTful API | Eye on World </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -92,9 +96,7 @@
 
 
 
-  <div class="container one-column 
-   page-home 
-">
+  <div class="container one-column page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -181,24 +183,9 @@
       <div class="main-inner">
         <div id="content" class="content">
           
-  <section id="posts" class="posts-expand">
 
+  <div id="posts" class="posts-expand">
     
-
-    
-    
-      
-      
-        
-        
-        
-      
-
-      
-    
-
-    
-      
 
   
   
@@ -218,10 +205,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2015/12/22/RESTful-API/" itemprop="url">
-                  RESTful API
-                </a>
+                RESTful API
               
             
           </h1>
@@ -269,10 +253,7 @@
       
 
       
-        
-          <span itemprop="articleBody">
-            
-              <p>开始学Android时，需要调用API进行网络通信，一直没有个完本，很忧伤~~~</p>
+        <span itemprop="articleBody"><p>开始学Android时，需要调用API进行网络通信，一直没有个完本，很忧伤~~~</p>
 <h2 id="HttpClient_u53D1_u9001HTTP_u8BF7_u6C42"><a href="#HttpClient_u53D1_u9001HTTP_u8BF7_u6C42" class="headerlink" title="HttpClient发送HTTP请求"></a>HttpClient发送HTTP请求</h2><h3 id="u72EC_u7ACB_u7EBF_u7A0BThread"><a href="#u72EC_u7ACB_u7EBF_u7A0BThread" class="headerlink" title="独立线程Thread"></a>独立线程Thread</h3><h4 id="POST_u65B9_u5F0F"><a href="#POST_u65B9_u5F0F" class="headerlink" title="POST方式"></a>POST方式</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">$	import org.apache.http.HttpEntity;</span><br><span class="line">$	import org.apache.http.HttpResponse;</span><br><span class="line">$	import org.apache.http.HttpStatus;</span><br><span class="line">$	import org.apache.http.NameValuePair;</span><br><span class="line">$	import org.apache.http.message.BasicNameValuePair;</span><br><span class="line">$	import org.apache.http.StatusLine;</span><br><span class="line">$	import org.apache.http.client.HttpClient;</span><br><span class="line">$	import org.apache.http.client.methods.HttpGet;</span><br><span class="line">$	import org.apache.http.client.methods.HttpPost;</span><br><span class="line">$	import org.apache.http.entity.StringEntity;</span><br><span class="line">$	import org.apache.http.impl.client.DefaultHttpClient;</span><br><span class="line">$	import org.apache.http.protocol.HTTP;</span><br><span class="line">$	import org.apache.http.util.EntityUtils;</span><br><span class="line">$	import org.json.JSONArray;</span><br><span class="line">$	import org.json.JSONException;</span><br><span class="line">$	import org.json.JSONObject;</span><br><span class="line">$</span><br><span class="line">$	import java.io.InputStream;</span><br><span class="line">$	import java.util.ArrayList;</span><br><span class="line">$	import java.util.List;</span><br><span class="line">$</span><br><span class="line">$	import java.util.Timer;</span><br><span class="line">$	import java.util.TimerTask;</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">$	/**</span><br><span class="line">$     * 调用POST方式发送请求</span><br><span class="line">$     */</span><br><span class="line">$    public static InputStream fun_post(JSONObject jo) &#123;</span><br><span class="line">$        InputStream is = null;</span><br><span class="line">$        HttpClient client = new DefaultHttpClient();</span><br><span class="line">$        HttpPost post = new HttpPost(serverUrl + <span class="string">"joy"</span>);</span><br><span class="line">$        try &#123;</span><br><span class="line">$            StringEntity entity = new StringEntity(jo.toString(), HTTP.UTF_8);</span><br><span class="line">$            entity.setContentType(<span class="string">"application/json"</span>);	//设置数据格式</span><br><span class="line">$            post.setEntity(entity);</span><br><span class="line">$            HttpResponse response = client.execute(post);</span><br><span class="line">$            StatusLine statusLine = response.getStatusLine();</span><br><span class="line">$</span><br><span class="line">$            <span class="keyword">if</span> (statusLine.getStatusCode() != HttpStatus.SC_OK)&#123;</span><br><span class="line">$                is = response.getEntity().getContent();</span><br><span class="line">$            &#125;</span><br><span class="line">$</span><br><span class="line">$        &#125;catch (Exception e) &#123;</span><br><span class="line">$            throw new RuntimeException(e);</span><br><span class="line">$        &#125;</span><br><span class="line">$</span><br><span class="line">$        <span class="built_in">return</span> is;</span><br><span class="line">$    &#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">$	/**</span><br><span class="line">$     * 以JSONObject格式封装数据</span><br><span class="line">$     */</span><br><span class="line">$    public static void func_send_data(int id, double x, double y, int KEY)</span><br><span class="line">$    &#123;</span><br><span class="line">$        double[] axs = &#123; joy_x, joy_y&#125;;</span><br><span class="line">$        int[] btns = &#123; KEY, <span class="number">0</span> &#125;;</span><br><span class="line">$</span><br><span class="line">$        JSONObject jo = new JSONObject();</span><br><span class="line">$        try&#123;</span><br><span class="line">$            jo.put(<span class="string">"robot_id"</span>, robot_id);</span><br><span class="line">$                jo.put(<span class="string">"axes"</span>, new JSONArray().put(joy_axs[<span class="number">0</span>]).put(joy_axs[<span class="number">1</span>]));</span><br><span class="line">$                jo.put(<span class="string">"buttons"</span>, new JSONArray().put(joy_btns[<span class="number">0</span>]).put(joy_btns[<span class="number">1</span>]));</span><br><span class="line">$</span><br><span class="line">$            fun_post(jo);</span><br><span class="line">$</span><br><span class="line">$        &#125;catch (JSONException e)&#123;</span><br><span class="line">$            e.printStackTrace();</span><br><span class="line">$        &#125;</span><br><span class="line">$    &#125;</span><br></pre></td></tr></table></figure>
@@ -281,10 +262,7 @@
 <h3 id="u5F02_u6B65_u4EFB_u52A1AsyncTask"><a href="#u5F02_u6B65_u4EFB_u52A1AsyncTask" class="headerlink" title="异步任务AsyncTask"></a>异步任务AsyncTask</h3><h4 id="GET_u65B9_u5F0F"><a href="#GET_u65B9_u5F0F" class="headerlink" title="GET方式"></a>GET方式</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$	import android.os.AsyncTask;</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">$   /**</span><br><span class="line">$     * 调用GET方式发送请求</span><br><span class="line">$     */</span><br><span class="line">$	 public static serverUrl = <span class="string">"http://......"</span>;</span><br><span class="line">$    public static String <span class="function"><span class="title">func_get</span></span>() &#123;</span><br><span class="line">$         String str = <span class="string">""</span>;</span><br><span class="line">$         try&#123;</span><br><span class="line">$             HttpClient client = new DefaultHttpClient();</span><br><span class="line">$             HttpGet get = new HttpGet(serverUrl);</span><br><span class="line">$             HttpResponse response = client.execute(get);</span><br><span class="line">$             StatusLine statusLine = response.getStatusLine();</span><br><span class="line">$</span><br><span class="line">$             <span class="keyword">if</span> (statusLine.getStatusCode() == HttpStatus.SC_OK)&#123;</span><br><span class="line">$                 HttpEntity entity = response.getEntity();</span><br><span class="line">$                 str = EntityUtils.toString(entity, HTTP.UTF_8);//将entity当中的数据转换为字符串</span><br><span class="line">$             &#125;</span><br><span class="line">$         &#125;catch (Exception e)&#123;</span><br><span class="line">$             e.printStackTrace();</span><br><span class="line">$         &#125;</span><br><span class="line">$</span><br><span class="line">$         <span class="built_in">return</span> str;</span><br><span class="line">$   &#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">$	/**</span><br><span class="line">$     * 异步获取数据并解析</span><br><span class="line">$	  * public abstract class AsyncTask&lt;Params, Progress, Result&gt;</span><br><span class="line">$	  * Params：输入参数</span><br><span class="line">$     * Progress：数据更新</span><br><span class="line">$	  * Result：执行后的返回结果</span><br><span class="line">$     */</span><br><span class="line">$	 public static List&lt;List&lt;NameValuePair&gt;&gt; robotCollection = new ArrayList&lt;List&lt;NameValuePair&gt;&gt;();</span><br><span class="line">$    private class OnlineData extends AsyncTask&lt;Void, String, String&gt; &#123;</span><br><span class="line">$         public <span class="function"><span class="title">OnlineData</span></span>()&#123;</span><br><span class="line">$</span><br><span class="line">$         &#125;</span><br><span class="line">$</span><br><span class="line">$         //onPreExecute方法在execute()后立即执行,任务初始化</span><br><span class="line">$         @Override</span><br><span class="line">$         protected void <span class="function"><span class="title">onPreExecute</span></span>() &#123;</span><br><span class="line">$             super.onPreExecute();</span><br><span class="line">$         &#125;</span><br><span class="line">$</span><br><span class="line">$         //<span class="keyword">do</span>InBackground方法内部执行后台任务,不能在里面更新UI，否则有异常。</span><br><span class="line">$         @Override</span><br><span class="line">$         protected String <span class="keyword">do</span>InBackground(Void ... params) &#123;</span><br><span class="line">$             <span class="built_in">return</span> func_get();</span><br><span class="line">$         &#125;</span><br><span class="line">$</span><br><span class="line">$         //onProgressUpdate方法用于更新进度信息</span><br><span class="line">$         @Override</span><br><span class="line">$         protected void onProgressUpdate(String... values) &#123;</span><br><span class="line">$             super.onProgressUpdate(values);</span><br><span class="line">$         &#125;</span><br><span class="line">$</span><br><span class="line">$         //onPostExecute用于<span class="keyword">do</span>InBackground执行完后，更新界面UI</span><br><span class="line">$         //result是<span class="keyword">do</span>InBackground返回的结果</span><br><span class="line">$         @Override</span><br><span class="line">$         protected void onPostExecute(String json) &#123;</span><br><span class="line">$             super.onPostExecute(json);</span><br><span class="line">$             try&#123;</span><br><span class="line">$                 JSONObject jo = new JSONObject(json);</span><br><span class="line">$                 <span class="keyword">for</span> (int i = <span class="number">0</span>; i &lt; jo.getJSONArray(<span class="string">"data"</span>).length(); i++) &#123;</span><br><span class="line">$                     List&lt;NameValuePair&gt; robotPairs = new ArrayList&lt;&gt;();</span><br><span class="line">$                     robotPairs.add(new BasicNameValuePair(<span class="string">"robot_id"</span>,</span><br><span class="line">$                             jo.getJSONArray(<span class="string">"data"</span>).getJSONObject(i).getString(<span class="string">"robot_id"</span>)));</span><br><span class="line">$                     robotPairs.add(new BasicNameValuePair(<span class="string">"robot_name"</span>,</span><br><span class="line">$                             jo.getJSONArray(<span class="string">"data"</span>).getJSONObject(i).getString(<span class="string">"robot_name"</span>)));</span><br><span class="line">$                     robotPairs.add(new BasicNameValuePair(<span class="string">"camera_url"</span>,</span><br><span class="line">$                             jo.getJSONArray(<span class="string">"data"</span>).getJSONObject(i).getString(<span class="string">"camera_url"</span>)));</span><br><span class="line">$</span><br><span class="line">$                     Batch.robotCollection.add(robotPairs);</span><br><span class="line">$                 &#125;</span><br><span class="line">$             &#125;catch (Exception e)&#123;</span><br><span class="line">$                 e.printStackTrace();</span><br><span class="line">$             &#125;</span><br><span class="line">$         &#125;</span><br><span class="line">$</span><br><span class="line">$         //onCancelled方法用于取消Task执行，更新UI</span><br><span class="line">$         @Override</span><br><span class="line">$         protected void <span class="function"><span class="title">onCancelled</span></span>() &#123;</span><br><span class="line">$</span><br><span class="line">$         &#125;</span><br><span class="line">$     &#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$	/**</span><br><span class="line">$     * execute</span><br><span class="line">$     */</span><br><span class="line">$	 public void <span class="function"><span class="title">func_excute</span></span>()&#123;</span><br><span class="line">$	 	OnlineData onlineData = new OnlineData();</span><br><span class="line">$	 	onlineData.execute();		//只能调用一次</span><br><span class="line">$	 &#125;</span><br></pre></td></tr></table></figure>
-            
-          </span>
-        
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$	/**</span><br><span class="line">$     * execute</span><br><span class="line">$     */</span><br><span class="line">$	 public void <span class="function"><span class="title">func_excute</span></span>()&#123;</span><br><span class="line">$	 	OnlineData onlineData = new OnlineData();</span><br><span class="line">$	 	onlineData.execute();		//只能调用一次</span><br><span class="line">$	 &#125;</span><br></pre></td></tr></table></figure></span>
       
     </div>
 
@@ -292,20 +270,32 @@
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/12/21/app-restart/" rel="next" title="WPF应用程序如何重启当前APP？">
+                <i class="fa fa-chevron-left"></i> WPF应用程序如何重启当前APP？
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
 
       
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
 
-  </section>
-
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
         </div>
@@ -314,6 +304,10 @@
 
 
         
+  <div class="comments" id="comments">
+    
+  </div>
+
 
       </div>
 
@@ -334,8 +328,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" src="/images/avatar.jpg" alt="一弯新月" itemprop="image"/>
           <p class="site-author-name" itemprop="name">一弯新月</p>
@@ -390,6 +393,23 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HttpClient_u53D1_u9001HTTP_u8BF7_u6C42"><span class="nav-number">1.</span> <span class="nav-text">HttpClient发送HTTP请求</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u72EC_u7ACB_u7EBF_u7A0BThread"><span class="nav-number">1.1.</span> <span class="nav-text">独立线程Thread</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#POST_u65B9_u5F0F"><span class="nav-number">1.1.1.</span> <span class="nav-text">POST方式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5F02_u6B65_u4EFB_u52A1AsyncTask"><span class="nav-number">1.2.</span> <span class="nav-text">异步任务AsyncTask</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#GET_u65B9_u5F0F"><span class="nav-number">1.2.1.</span> <span class="nav-text">GET方式</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
       
 
     </div>
@@ -460,6 +480,167 @@
   <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
 
   <script type="text/javascript" src="/js/bootstrap.js"></script>
 
