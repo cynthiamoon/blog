@@ -211,7 +211,7 @@
               
                 
                 <a class="post-title-link" href="/2015/12/22/precision/" itemprop="url">
-                  precision
+                  自定义浮点型精度
                 </a>
               
             
@@ -264,7 +264,7 @@
           <span itemprop="articleBody">
             
               <p>看到满屏数字你会有密集恐惧症吗？我会，so~~~虽然很简单，但很方便</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">    * 自定义<span class="built_in">float</span>精度(<span class="number">3</span>位)</span><br><span class="line">    */</span><br><span class="line">   public static <span class="built_in">float</span> precision(<span class="built_in">float</span> x) &#123;</span><br><span class="line">       <span class="keyword">if</span> (x &lt; <span class="number">0</span>)</span><br><span class="line">           x = ((<span class="built_in">float</span>)((int)((x - <span class="number">0.0005</span>) * <span class="number">1000</span>))) / <span class="number">1000</span>;</span><br><span class="line">       <span class="keyword">else</span></span><br><span class="line">           x = ((<span class="built_in">float</span>)((int)((x + <span class="number">0.0005</span>) * <span class="number">1000</span>))) / <span class="number">1000</span>;</span><br><span class="line"></span><br><span class="line">       <span class="built_in">return</span> x;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 自定义浮点型精度(<span class="number">3</span>位)</span><br><span class="line"> */</span><br><span class="line">public static <span class="built_in">float</span> precision(<span class="built_in">float</span> x) &#123;</span><br><span class="line">	<span class="keyword">if</span> (x &lt; <span class="number">0</span>)</span><br><span class="line">		x = ((<span class="built_in">float</span>)((int)((x - <span class="number">0.0005</span>) * <span class="number">1000</span>))) / <span class="number">1000</span>;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		x = ((<span class="built_in">float</span>)((int)((x + <span class="number">0.0005</span>) * <span class="number">1000</span>))) / <span class="number">1000</span>;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">return</span> x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
             
           </span>
