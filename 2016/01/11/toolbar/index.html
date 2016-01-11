@@ -57,7 +57,8 @@
 <meta property="og:url" content="http://yoursite.com/2016/01/11/toolbar/index.html">
 <meta property="og:site_name" content="Eye on World">
 <meta property="og:description" content="一直以来，想用Action Bar的标题栏，但又讨厌它丑丑哒背景色，很忧伤的说~今天有空，就来规整规整，希望可以帮助和我一样迷茫的童鞋">
-<meta property="og:updated_time" content="2016-01-11T11:02:03.683Z">
+<meta property="og:image" content="http://yoursite.com/images/toolbar.png">
+<meta property="og:updated_time" content="2016-01-11T11:42:31.013Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自定义操作栏ToolBar">
 <meta name="twitter:description" content="一直以来，想用Action Bar的标题栏，但又讨厌它丑丑哒背景色，很忧伤的说~今天有空，就来规整规整，希望可以帮助和我一样迷茫的童鞋">
@@ -250,7 +251,11 @@
       
 
       
-        <span itemprop="articleBody"><p>一直以来，想用Action Bar的标题栏，但又讨厌它丑丑哒背景色，很忧伤的说~今天有空，就来规整规整，希望可以帮助和我一样迷茫的童鞋<br><a id="more"></a><br>avatar: /images/toolbar.png</p>
+        <span itemprop="articleBody"><p>一直以来，想用Action Bar的标题栏，但又讨厌它丑丑哒背景色，很忧伤的说~今天有空，就来规整规整，希望可以帮助和我一样迷茫的童鞋<br><a id="more"></a></p>
+<h2 id="u81EA_u5B9A_u4E49_u914D_u8272"><a href="#u81EA_u5B9A_u4E49_u914D_u8272" class="headerlink" title="自定义配色"></a>自定义配色</h2><p><img src="/images/toolbar.png" alt=""></p>
+<h2 id="u65B0_u5EFA_u914D_u8272_u6587_u4EF6/res/values/colors-xml"><a href="#u65B0_u5EFA_u914D_u8272_u6587_u4EF6/res/values/colors-xml" class="headerlink" title="新建配色文件/res/values/colors.xml"></a>新建配色文件/res/values/colors.xml</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/res/values/colors</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span>?&gt;</span><br><span class="line">&lt;resources&gt;</span><br><span class="line">    &lt;color name=<span class="string">"primaryColor"</span>&gt;<span class="comment">#3f8ad0&lt;/color&gt;</span></span><br><span class="line">    &lt;color name=<span class="string">"primaryColorDark"</span>&gt;<span class="comment">#fbc02d&lt;/color&gt;</span></span><br><span class="line">    &lt;color name=<span class="string">"accentColor"</span>&gt;<span class="comment">#50514f&lt;/color&gt;</span></span><br><span class="line">    &lt;color name=<span class="string">"textColorPrimary"</span>&gt;<span class="comment">#33b5e5&lt;/color&gt;</span></span><br><span class="line">    &lt;color name=<span class="string">"textColorSecondary"</span>&gt;<span class="comment">#aa66cc&lt;/color&gt;</span></span><br><span class="line">&lt;/resources&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="u65B0_u5EFAtoolbar_u5E03_u5C40_u6587_u4EF6/res/layout/app_bar-xml"><a href="#u65B0_u5EFAtoolbar_u5E03_u5C40_u6587_u4EF6/res/layout/app_bar-xml" class="headerlink" title="新建toolbar布局文件/res/layout/app_bar.xml"></a>新建toolbar布局文件/res/layout/app_bar.xml</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span>?&gt;</span><br><span class="line">&lt;android.support.v7.widget.Toolbar</span><br><span class="line">    xmlns:android=<span class="string">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    android:layout_width=<span class="string">"match_parent"</span></span><br><span class="line">    android:layout_height=<span class="string">"wrap_content"</span></span><br><span class="line">    android:background=<span class="string">"@color/primaryColor"</span>&gt;</span><br><span class="line">&lt;/android.support.v7.widget.Toolbar&gt;</span><br></pre></td></tr></table></figure>
 </span>
       
     </div>
@@ -392,7 +397,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#u81EA_u5B9A_u4E49_u914D_u8272"><span class="nav-number">1.</span> <span class="nav-text">自定义配色</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u65B0_u5EFA_u914D_u8272_u6587_u4EF6/res/values/colors-xml"><span class="nav-number">2.</span> <span class="nav-text">新建配色文件/res/values/colors.xml</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u65B0_u5EFAtoolbar_u5E03_u5C40_u6587_u4EF6/res/layout/app_bar-xml"><span class="nav-number">3.</span> <span class="nav-text">新建toolbar布局文件/res/layout/app_bar.xml</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
