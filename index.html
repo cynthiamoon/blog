@@ -187,6 +187,15 @@
 
     
     
+      
+      
+        
+        
+        
+      
+
+      
+    
 
     
       
@@ -210,7 +219,107 @@
             
               
                 
-                <a class="post-title-link" href="/2016/01/11/toolbar/" itemprop="url">
+                <a class="post-title-link" href="/2016/01/13/pixel-unit/" itemprop="url">
+                  pixel-unit
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-01-13T17:58:55+08:00" content="2016-01-13">
+              2016-01-13
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <p>项目经常用到各种单位来表示尺寸、大小的，这里来盘点下，方便使用~哦噢<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">下面是Android常用的单位，官方推荐height、width用dp；文字size用sp</span><br><span class="line">/**</span><br><span class="line"> * dp(Device-independent pixel 设备独立像素)</span><br><span class="line"> * px(pixel 像素)</span><br><span class="line"> * sp(scaled pixel 放大像素)</span><br><span class="line"> */</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * dp转换为px，保证尺寸大小不变</span><br><span class="line"> */</span><br><span class="line">public static int dp2px(Context context, <span class="built_in">float</span> dpValue) &#123;</span><br><span class="line">	final <span class="built_in">float</span> scale = context.getResources().getDisplayMetrics().density;</span><br><span class="line">	<span class="built_in">return</span> (int) (dpValue * scale + <span class="number">0.5</span>f);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * px转换为dp，保证尺寸大小不变</span><br><span class="line"> */</span><br><span class="line">public static int px2dp(Context context, <span class="built_in">float</span> pxValue) &#123;</span><br><span class="line">	final <span class="built_in">float</span> scale = context.getResources().getDisplayMetrics().density;</span><br><span class="line">	<span class="built_in">return</span> (int) (pxValue / scale + <span class="number">0.5</span>f);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * px转换为sp，保证文字大小不变</span><br><span class="line"> */</span><br><span class="line">public static int px2sp(Context context, <span class="built_in">float</span> pxValue) &#123;</span><br><span class="line">	final <span class="built_in">float</span> fontScale = context.getResources().getDisplayMetrics().scaledDensity;</span><br><span class="line">	<span class="built_in">return</span> (int) (pxValue / fontScale + <span class="number">0.5</span>f);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * sp转换为px，保证文字大小不变</span><br><span class="line"> */</span><br><span class="line">public static int sp2px(Context context, <span class="built_in">float</span> spValue) &#123;</span><br><span class="line">	final <span class="built_in">float</span> fontScale = context.getResources().getDisplayMetrics().scaledDensity;</span><br><span class="line">	<span class="built_in">return</span> (int) (spValue * fontScale + <span class="number">0.5</span>f);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/01/11/ToolBar/" itemprop="url">
                   自定义操作栏ToolBar
                 </a>
               
@@ -263,7 +372,7 @@
         
           <p>一直以来，想用Action Bar的标题栏，但又讨厌它丑丑哒背景色，很忧伤的说~今天有空，就来规整规整，希望可以帮助和我一样迷茫的童鞋<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/01/11/toolbar/#more" rel="contents">
+            <a class="btn" href="/2016/01/11/ToolBar/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -306,7 +415,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/01/09/view-flipper/" itemprop="url">
+                <a class="post-title-link" href="/2016/01/09/ViewFlipper/" itemprop="url">
                   页面滑动切换之ViewFlipper
                 </a>
               
@@ -359,7 +468,7 @@
         
           <p>小小的页面切换，难倒英雄汉~~~今天，偶就来仰视仰视（直接放码）<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/01/09/view-flipper/#more" rel="contents">
+            <a class="btn" href="/2016/01/09/ViewFlipper/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -498,7 +607,7 @@
             
               
                 
-                <a class="post-title-link" href="/2015/12/22/precision/" itemprop="url">
+                <a class="post-title-link" href="/2015/12/22/Precision/" itemprop="url">
                   自定义浮点型精度
                 </a>
               
@@ -574,102 +683,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/12/22/distance-two-points/" itemprop="url">
-                  计算两点间距离
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-12-22T16:59:30+08:00" content="2015-12-22">
-              2015-12-22
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p>想知道你和她（他）靠的有多近，勾股定理很重要，且看偶来度量两点间距离~~~<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 计算两点间距离</span><br><span class="line"> */</span><br><span class="line">public static double distance_two_points(<span class="built_in">float</span> x0, <span class="built_in">float</span> y0, <span class="built_in">float</span> x1, <span class="built_in">float</span> y1) &#123;</span><br><span class="line">    <span class="built_in">return</span> Math.sqrt(Math.pow((x0 - x1), <span class="number">2</span>) + Math.pow((y0 - y1), <span class="number">2</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -716,7 +729,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

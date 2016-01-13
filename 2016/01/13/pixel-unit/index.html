@@ -51,19 +51,19 @@
 
 
 
-<meta name="description" content="看到满屏数字你会有密集恐惧症吗？我会，so~~~虽然很简单，但很方便
-1234567891011/** * 自定义浮点型精度(3位) */public static float precision(float x) &amp;#123;	if (x &amp;lt; 0)		x = ((float)((int)((x - 0.0005) * 1000))) / 1000;	else		x = ((float)((">
+<meta name="description" content="项目经常用到各种单位来表示尺寸、大小的，这里来盘点下，方便使用~哦噢123456下面是Android常用的单位，官方推荐height、width用dp；文字size用sp/** * dp(Device-independent pixel 设备独立像素) * px(pixel 像素) * sp(scaled pixel 放大像素) */
+1234567/** * dp转换为px，保证尺寸大小不变 *">
 <meta property="og:type" content="article">
-<meta property="og:title" content="自定义浮点型精度">
-<meta property="og:url" content="http://yoursite.com/2015/12/22/Precision/index.html">
+<meta property="og:title" content="pixel-unit">
+<meta property="og:url" content="http://yoursite.com/2016/01/13/pixel-unit/index.html">
 <meta property="og:site_name" content="Eye on World">
-<meta property="og:description" content="看到满屏数字你会有密集恐惧症吗？我会，so~~~虽然很简单，但很方便
-1234567891011/** * 自定义浮点型精度(3位) */public static float precision(float x) &amp;#123;	if (x &amp;lt; 0)		x = ((float)((int)((x - 0.0005) * 1000))) / 1000;	else		x = ((float)((">
-<meta property="og:updated_time" content="2015-12-23T01:57:39.030Z">
+<meta property="og:description" content="项目经常用到各种单位来表示尺寸、大小的，这里来盘点下，方便使用~哦噢123456下面是Android常用的单位，官方推荐height、width用dp；文字size用sp/** * dp(Device-independent pixel 设备独立像素) * px(pixel 像素) * sp(scaled pixel 放大像素) */
+1234567/** * dp转换为px，保证尺寸大小不变 *">
+<meta property="og:updated_time" content="2016-01-13T10:20:07.004Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="自定义浮点型精度">
-<meta name="twitter:description" content="看到满屏数字你会有密集恐惧症吗？我会，so~~~虽然很简单，但很方便
-1234567891011/** * 自定义浮点型精度(3位) */public static float precision(float x) &amp;#123;	if (x &amp;lt; 0)		x = ((float)((int)((x - 0.0005) * 1000))) / 1000;	else		x = ((float)((">
+<meta name="twitter:title" content="pixel-unit">
+<meta name="twitter:description" content="项目经常用到各种单位来表示尺寸、大小的，这里来盘点下，方便使用~哦噢123456下面是Android常用的单位，官方推荐height、width用dp；文字size用sp/** * dp(Device-independent pixel 设备独立像素) * px(pixel 像素) * sp(scaled pixel 放大像素) */
+1234567/** * dp转换为px，保证尺寸大小不变 *">
 
 
 
@@ -75,7 +75,7 @@
   };
 </script>
 
-  <title> 自定义浮点型精度 | Eye on World </title>
+  <title> pixel-unit | Eye on World </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -205,7 +205,7 @@
             
             
               
-                自定义浮点型精度
+                pixel-unit
               
             
           </h1>
@@ -214,8 +214,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-12-22T17:11:00+08:00" content="2015-12-22">
-              2015-12-22
+            <time itemprop="dateCreated" datetime="2016-01-13T17:58:55+08:00" content="2016-01-13">
+              2016-01-13
             </time>
           </span>
 
@@ -253,8 +253,11 @@
       
 
       
-        <span itemprop="articleBody"><p>看到满屏数字你会有密集恐惧症吗？我会，so~~~虽然很简单，但很方便</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 自定义浮点型精度(<span class="number">3</span>位)</span><br><span class="line"> */</span><br><span class="line">public static <span class="built_in">float</span> precision(<span class="built_in">float</span> x) &#123;</span><br><span class="line">	<span class="keyword">if</span> (x &lt; <span class="number">0</span>)</span><br><span class="line">		x = ((<span class="built_in">float</span>)((int)((x - <span class="number">0.0005</span>) * <span class="number">1000</span>))) / <span class="number">1000</span>;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		x = ((<span class="built_in">float</span>)((int)((x + <span class="number">0.0005</span>) * <span class="number">1000</span>))) / <span class="number">1000</span>;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">return</span> x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <span itemprop="articleBody"><p>项目经常用到各种单位来表示尺寸、大小的，这里来盘点下，方便使用~哦噢<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">下面是Android常用的单位，官方推荐height、width用dp；文字size用sp</span><br><span class="line">/**</span><br><span class="line"> * dp(Device-independent pixel 设备独立像素)</span><br><span class="line"> * px(pixel 像素)</span><br><span class="line"> * sp(scaled pixel 放大像素)</span><br><span class="line"> */</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * dp转换为px，保证尺寸大小不变</span><br><span class="line"> */</span><br><span class="line">public static int dp2px(Context context, <span class="built_in">float</span> dpValue) &#123;</span><br><span class="line">	final <span class="built_in">float</span> scale = context.getResources().getDisplayMetrics().density;</span><br><span class="line">	<span class="built_in">return</span> (int) (dpValue * scale + <span class="number">0.5</span>f);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * px转换为dp，保证尺寸大小不变</span><br><span class="line"> */</span><br><span class="line">public static int px2dp(Context context, <span class="built_in">float</span> pxValue) &#123;</span><br><span class="line">	final <span class="built_in">float</span> scale = context.getResources().getDisplayMetrics().density;</span><br><span class="line">	<span class="built_in">return</span> (int) (pxValue / scale + <span class="number">0.5</span>f);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * px转换为sp，保证文字大小不变</span><br><span class="line"> */</span><br><span class="line">public static int px2sp(Context context, <span class="built_in">float</span> pxValue) &#123;</span><br><span class="line">	final <span class="built_in">float</span> fontScale = context.getResources().getDisplayMetrics().scaledDensity;</span><br><span class="line">	<span class="built_in">return</span> (int) (pxValue / fontScale + <span class="number">0.5</span>f);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * sp转换为px，保证文字大小不变</span><br><span class="line"> */</span><br><span class="line">public static int sp2px(Context context, <span class="built_in">float</span> spValue) &#123;</span><br><span class="line">	final <span class="built_in">float</span> fontScale = context.getResources().getDisplayMetrics().scaledDensity;</span><br><span class="line">	<span class="built_in">return</span> (int) (spValue * fontScale + <span class="number">0.5</span>f);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </span>
       
     </div>
@@ -266,17 +269,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/12/22/distance-two-points/" rel="next" title="计算两点间距离">
-                <i class="fa fa-chevron-left"></i> 计算两点间距离
+              <a href="/2016/01/11/ToolBar/" rel="next" title="自定义操作栏ToolBar">
+                <i class="fa fa-chevron-left"></i> 自定义操作栏ToolBar
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/01/04/app-widget/" rel="prev" title="App Widget">
-                App Widget <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
