@@ -51,16 +51,16 @@
 
 
 
-<meta name="description" content="项目经常用到各种单位来表示尺寸、大小的，这里来盘点下，方便使用~哦噢">
+<meta name="description" content="项目经常用到各种单位来表示尺寸、大小的，这里来盘点下，方便使用~哦噢123456下面是Android常用的单位，官方推荐height、width用dp；文字size用sp/** * dp(Device-independent pixel 设备独立像素) * px(pixel 像素) * sp(scaled pixel 放大像素) */">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android自适应长度单位">
 <meta property="og:url" content="http://yoursite.com/2016/01/13/pixel-unit/index.html">
 <meta property="og:site_name" content="Eye on World">
-<meta property="og:description" content="项目经常用到各种单位来表示尺寸、大小的，这里来盘点下，方便使用~哦噢">
-<meta property="og:updated_time" content="2016-01-13T10:28:09.199Z">
+<meta property="og:description" content="项目经常用到各种单位来表示尺寸、大小的，这里来盘点下，方便使用~哦噢123456下面是Android常用的单位，官方推荐height、width用dp；文字size用sp/** * dp(Device-independent pixel 设备独立像素) * px(pixel 像素) * sp(scaled pixel 放大像素) */">
+<meta property="og:updated_time" content="2016-01-13T10:31:41.343Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android自适应长度单位">
-<meta name="twitter:description" content="项目经常用到各种单位来表示尺寸、大小的，这里来盘点下，方便使用~哦噢">
+<meta name="twitter:description" content="项目经常用到各种单位来表示尺寸、大小的，这里来盘点下，方便使用~哦噢123456下面是Android常用的单位，官方推荐height、width用dp；文字size用sp/** * dp(Device-independent pixel 设备独立像素) * px(pixel 像素) * sp(scaled pixel 放大像素) */">
 
 
 
@@ -250,7 +250,8 @@
       
 
       
-        <span itemprop="articleBody"><p>项目经常用到各种单位来表示尺寸、大小的，这里来盘点下，方便使用~哦噢<br><a id="more"></a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">下面是Android常用的单位，官方推荐height、width用dp；文字size用sp</span><br><span class="line">/**</span><br><span class="line"> * dp(Device-independent pixel 设备独立像素)</span><br><span class="line"> * px(pixel 像素)</span><br><span class="line"> * sp(scaled pixel 放大像素)</span><br><span class="line"> */</span><br></pre></td></tr></table></figure></p>
+        <span itemprop="articleBody"><p>项目经常用到各种单位来表示尺寸、大小的，这里来盘点下，方便使用~哦噢<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">下面是Android常用的单位，官方推荐height、width用dp；文字size用sp</span><br><span class="line">/**</span><br><span class="line"> * dp(Device-independent pixel 设备独立像素)</span><br><span class="line"> * px(pixel 像素)</span><br><span class="line"> * sp(scaled pixel 放大像素)</span><br><span class="line"> */</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * dp转换为px，保证尺寸大小不变</span><br><span class="line"> */</span><br><span class="line">public static int dp2px(Context context, <span class="built_in">float</span> dpValue) &#123;</span><br><span class="line">	final <span class="built_in">float</span> scale = context.getResources().getDisplayMetrics().density;</span><br><span class="line">	<span class="built_in">return</span> (int) (dpValue * scale + <span class="number">0.5</span>f);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * px转换为dp，保证尺寸大小不变</span><br><span class="line"> */</span><br><span class="line">public static int px2dp(Context context, <span class="built_in">float</span> pxValue) &#123;</span><br><span class="line">	final <span class="built_in">float</span> scale = context.getResources().getDisplayMetrics().density;</span><br><span class="line">	<span class="built_in">return</span> (int) (pxValue / scale + <span class="number">0.5</span>f);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * px转换为sp，保证文字大小不变</span><br><span class="line"> */</span><br><span class="line">public static int px2sp(Context context, <span class="built_in">float</span> pxValue) &#123;</span><br><span class="line">	final <span class="built_in">float</span> fontScale = context.getResources().getDisplayMetrics().scaledDensity;</span><br><span class="line">	<span class="built_in">return</span> (int) (pxValue / fontScale + <span class="number">0.5</span>f);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
