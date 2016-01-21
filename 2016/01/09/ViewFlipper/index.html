@@ -1,5 +1,11 @@
 <!doctype html>
-<html class="theme-next   use-motion ">
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -65,10 +71,16 @@
 
 
 <script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
   var CONFIG = {
     scheme: 'Mist',
-    sidebar: 'post',
-    motion: true
+    sidebar: "post",
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
   };
 </script>
 
@@ -77,15 +89,6 @@
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-  <!--[if lte IE 8]>
-  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
-    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
-           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
-           style='margin-left:auto;margin-right:auto;display: block;'/>
-    </a>
-  </div>
-<![endif]-->
   
 
 
@@ -93,7 +96,12 @@
 
 
 
-  <div class="container one-column page-post-detail">
+
+
+  
+  
+
+  <div class="container one-collumn  page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -167,6 +175,7 @@
 
       
       
+      
     </ul>
   
 
@@ -178,8 +187,9 @@
 
     <main id="main" class="main">
       <div class="main-inner">
-        <div id="content" class="content">
-          
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
 
   <div id="posts" class="posts-expand">
     
@@ -210,7 +220,10 @@
 
         <div class="post-meta">
           <span class="post-time">
-            发表于
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
             <time itemprop="dateCreated" datetime="2016-01-09T15:52:59+08:00" content="2016-01-09">
               2016-01-09
             </time>
@@ -218,7 +231,11 @@
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/Android/" itemprop="url" rel="index">
@@ -239,18 +256,20 @@
 
           
 
+          
+          
         </div>
       </header>
     
 
 
-    <div class="post-body">
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
-        <span itemprop="articleBody"><p>小小的页面切换，难倒英雄汉~~~今天，偶就来仰视仰视（直接放码）<br><a id="more"></a></p>
+        <p>小小的页面切换，难倒英雄汉~~~今天，偶就来仰视仰视（直接放码）<br><a id="more"></a></p>
 <h2 id="step1"><a href="#step1" class="headerlink" title="step1"></a>step1</h2><h3 id="u521B_u5EFA_u5E03_u5C40_u6587_u4EF6/res/layout/my_flipper-xml"><a href="#u521B_u5EFA_u5E03_u5C40_u6587_u4EF6/res/layout/my_flipper-xml" class="headerlink" title="创建布局文件/res/layout/my_flipper.xml"></a>创建布局文件/res/layout/my_flipper.xml</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span>?&gt;</span><br><span class="line">&lt;LinearLayout xmlns:android=<span class="string">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    android:layout_width=<span class="string">"match_parent"</span></span><br><span class="line">    android:layout_height=<span class="string">"match_parent"</span></span><br><span class="line">    android:paddingBottom=<span class="string">"@dimen/activity_vertical_margin"</span></span><br><span class="line">    android:paddingLeft=<span class="string">"@dimen/activity_horizontal_margin"</span></span><br><span class="line">    android:paddingRight=<span class="string">"@dimen/activity_horizontal_margin"</span></span><br><span class="line">    android:paddingTop=<span class="string">"@dimen/activity_vertical_margin"</span></span><br><span class="line">    android:orientation=<span class="string">"vertical"</span></span><br><span class="line">    android:background=<span class="string">"#3f8ad0"</span></span><br><span class="line">	android:gravity=<span class="string">"center"</span>&gt;</span><br><span class="line"></span><br><span class="line">    &lt;ViewFlipper</span><br><span class="line">        android:layout_width=<span class="string">"match_parent"</span></span><br><span class="line">        android:layout_height=<span class="string">"match_parent"</span></span><br><span class="line">        android:id=<span class="string">"@+id/flipper"</span></span><br><span class="line">        android:layout_gravity=<span class="string">"center"</span>&gt;</span><br><span class="line">    &lt;/ViewFlipper&gt;</span><br><span class="line">&lt;/LinearLayout&gt;</span><br></pre></td></tr></table></figure>
 <h2 id="step2"><a href="#step2" class="headerlink" title="step2"></a>step2</h2><h3 id="u521B_u5EFA_u52A8_u753B_u6587_u4EF6/res/anim/"><a href="#u521B_u5EFA_u52A8_u753B_u6587_u4EF6/res/anim/" class="headerlink" title="创建动画文件/res/anim/"></a>创建动画文件/res/anim/</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/res/anim/push_left_in.xml</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span>?&gt;</span><br><span class="line">&lt;<span class="built_in">set</span> xmlns:android=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</span><br><span class="line">    &lt;translate android:fromXDelta=<span class="string">"100%p"</span> android:toXDelta=<span class="string">"0"</span></span><br><span class="line">        android:duration=<span class="string">"500"</span> /&gt;</span><br><span class="line">    &lt;alpha android:fromAlpha=<span class="string">"0.1"</span> android:toAlpha=<span class="string">"1.0"</span></span><br><span class="line">        android:duration=<span class="string">"500"</span> /&gt;</span><br><span class="line">&lt;/<span class="built_in">set</span>&gt;</span><br></pre></td></tr></table></figure>
@@ -262,7 +281,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span>?&gt;</span><br><span class="line">&lt;<span class="built_in">set</span> xmlns:android=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</span><br><span class="line">    &lt;translate android:fromXDelta=<span class="string">"0"</span> android:toXDelta=<span class="string">"100%p"</span></span><br><span class="line">        android:duration=<span class="string">"500"</span> /&gt;</span><br><span class="line">    &lt;alpha android:fromAlpha=<span class="string">"1.0"</span> android:toAlpha=<span class="string">"0.1"</span></span><br><span class="line">        android:duration=<span class="string">"500"</span> /&gt;</span><br><span class="line">&lt;/<span class="built_in">set</span>&gt;</span><br></pre></td></tr></table></figure>
 <h2 id="step3"><a href="#step3" class="headerlink" title="step3"></a>step3</h2><h3 id="u521B_u5EFA_u6587_u4EF6FlipperActivity-java_uFF0C_u5B9E_u73B0_u6ED1_u52A8_u6548_u679C"><a href="#u521B_u5EFA_u6587_u4EF6FlipperActivity-java_uFF0C_u5B9E_u73B0_u6ED1_u52A8_u6548_u679C" class="headerlink" title="创建文件FlipperActivity.java，实现滑动效果"></a>创建文件FlipperActivity.java，实现滑动效果</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import android.graphics.Color;</span><br><span class="line">import android.os.Bundle;</span><br><span class="line">import android.support.v7.app.ActionBarActivity;</span><br><span class="line">import android.view.GestureDetector;</span><br><span class="line">import android.view.GestureDetector.OnGestureListener;</span><br><span class="line">import android.view.MotionEvent;</span><br><span class="line">import android.view.animation.Animation;</span><br><span class="line">import android.view.animation.AnimationUtils;</span><br><span class="line"></span><br><span class="line">import android.widget.TextView;</span><br><span class="line">import android.widget.ViewFlipper;</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line">public class FlipperActivity extends ActionBarActivity implements OnGestureListener &#123;</span><br><span class="line"></span><br><span class="line">    ViewFlipper flipper;</span><br><span class="line">    GestureDetector detector;</span><br><span class="line">    Animation[] animations = new Animation[<span class="number">4</span>];</span><br><span class="line">    final int FLIP_DISTANCE = <span class="number">50</span>;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</span><br><span class="line">        super.onCreate(savedInstanceState);</span><br><span class="line">        <span class="built_in">set</span>ContentView(R.layout.my_flipper);</span><br><span class="line"></span><br><span class="line">        init_anim();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 初始化</span><br><span class="line">     */</span><br><span class="line">    private void <span class="function"><span class="title">init_anim</span></span>() &#123;</span><br><span class="line">        flipper = (ViewFlipper)findViewById(R.id.flipper);</span><br><span class="line">        detector = new GestureDetector(this, this);     //声明检测手势事件</span><br><span class="line"></span><br><span class="line">        animations[<span class="number">0</span>] = AnimationUtils.loadAnimation(this, R.anim.push_left_<span class="keyword">in</span>);</span><br><span class="line">        animations[<span class="number">1</span>] = AnimationUtils.loadAnimation(this, R.anim.push_left_out);</span><br><span class="line">        animations[<span class="number">2</span>] = AnimationUtils.loadAnimation(this, R.anim.push_right_<span class="keyword">in</span>);</span><br><span class="line">        animations[<span class="number">3</span>] = AnimationUtils.loadAnimation(this, R.anim.push_right_out);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (int i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i ++)&#123;</span><br><span class="line">            TextView tv = new TextView(this);</span><br><span class="line">            tv.setText(<span class="string">"我是第"</span> + (i + <span class="number">1</span>) + <span class="string">"名"</span>);</span><br><span class="line">            tv.setTextColor(Color.WHITE);</span><br><span class="line">            flipper.addView(tv);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public boolean onTouchEvent(MotionEvent event) &#123;</span><br><span class="line">        <span class="built_in">return</span> detector.onTouchEvent(event);            //注册手势事件</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public boolean onDown(MotionEvent e) &#123;</span><br><span class="line">        <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public boolean onFling(MotionEvent e1, MotionEvent e2, <span class="built_in">float</span> velocityX, <span class="built_in">float</span> velocityY) &#123;</span><br><span class="line">        <span class="keyword">if</span> (e1.getX() - e2.getX() &gt; FLIP_DISTANCE) &#123;</span><br><span class="line">            flipper.setInAnimation(animations[<span class="number">0</span>]);</span><br><span class="line">            flipper.setOutAnimation(animations[<span class="number">1</span>]);</span><br><span class="line">            flipper.showNext();</span><br><span class="line"></span><br><span class="line">            <span class="built_in">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (e1.getX() - e2.getX() &lt; FLIP_DISTANCE ) &#123;</span><br><span class="line">            flipper.setInAnimation(animations[<span class="number">2</span>]);</span><br><span class="line">            flipper.setOutAnimation(animations[<span class="number">3</span>]);</span><br><span class="line">            flipper.showPrevious();</span><br><span class="line"></span><br><span class="line">            <span class="built_in">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void onLongPress(MotionEvent e) &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public boolean onScroll(MotionEvent e1, MotionEvent e2, <span class="built_in">float</span> distanceX, <span class="built_in">float</span> distanceY) &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void onShowPress(MotionEvent e) &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public boolean onSingleTapUp(MotionEvent e) &#123;</span><br><span class="line">        // TODO Auto-generated method stub</span><br><span class="line">        <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</span>
+
       
     </div>
 
@@ -302,21 +321,19 @@
   </div>
 
 
-        </div>
+          </div>
+          
 
-        
 
-
-        
+          
   <div class="comments" id="comments">
     
   </div>
 
 
-      </div>
-
-      
+        </div>
         
+          
   
   <div class="sidebar-toggle">
     <div class="sidebar-toggle-line-wrap">
@@ -344,10 +361,12 @@
 
       <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="/images/avatar.jpg" alt="一弯新月" itemprop="image"/>
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="一弯新月" />
           <p class="site-author-name" itemprop="name">一弯新月</p>
+          <p class="site-description motion-element" itemprop="description">The two most powerful warriors are patience and time</p>
         </div>
-        <p class="site-description motion-element" itemprop="description">The two most powerful warriors are patience and time</p>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
@@ -420,7 +439,8 @@
   </aside>
 
 
-      
+        
+      </div>
     </main>
 
     <footer id="footer" class="footer">
@@ -454,39 +474,41 @@
     <div class="back-to-top"></div>
   </div>
 
+  
+
+
+  
+
+
+
   <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
-  
-  
-
-  
-    
-    
-
-  
-
-
-  
-
-  
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
-
-
-  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
-<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
-
-<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
-
-
   <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
   <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
-  
-  
-<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
 
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.4.5.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.4.5.2"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.4.5.2"></script>
 
 <script type="text/javascript" id="sidebar.toc.highlight">
   $(document).ready(function () {
@@ -620,7 +642,7 @@
 
     $('.post-toc a').on('click', function (e) {
       e.preventDefault();
-      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
       var offset = $(targetSelector).offset().top;
       hasVelocity ?
         html.velocity('stop').velocity('scroll', {
@@ -633,11 +655,12 @@
     });
 
     // Expand sidebar on post detail page by default, when post has a toc.
-    motionMiddleWares.sidebar = function () {
+    NexT.motion.middleWares.sidebar = function () {
       var $tocContent = $('.post-toc-content');
+
       if (CONFIG.sidebar === 'post') {
         if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
-          displaySidebar();
+          NexT.utils.displaySidebar();
         }
       }
     };
@@ -646,13 +669,27 @@
 
 
 
-  <script type="text/javascript" src="/js/bootstrap.js"></script>
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.4.5.2"></script>
+
+
+
+  
+
+
+
+  
+
+
 
   
   
 
   
   
+
 
 </body>
 </html>
