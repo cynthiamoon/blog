@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="LIFO,Overflow,内存泄漏,堆,栈,空间碎片," />
 
 
 
@@ -57,19 +57,16 @@
 
 
 
-<meta name="description" content="一次项目应用中用到这个，趁机规整下
-Restart the current process">
+<meta name="description" content="C语言中的堆和栈，以前用过，但也就稀里糊涂的用了，理论上却是模糊的很。。。今天呢，终于彻底搞明白了，简单记录下，嘿嘿~~~">
 <meta property="og:type" content="article">
-<meta property="og:title" content="WPF应用程序如何重启当前APP？">
-<meta property="og:url" content="http://cynthiaty.github.io/2015/12/app-restart/index.html">
+<meta property="og:title" content="C语言堆（heap）与栈（stack）的区别">
+<meta property="og:url" content="http://cynthiaty.github.io/2016/06/stack-heap/index.html">
 <meta property="og:site_name" content="Eye on World">
-<meta property="og:description" content="一次项目应用中用到这个，趁机规整下
-Restart the current process">
-<meta property="og:updated_time" content="2016-06-16T04:22:02.489Z">
+<meta property="og:description" content="C语言中的堆和栈，以前用过，但也就稀里糊涂的用了，理论上却是模糊的很。。。今天呢，终于彻底搞明白了，简单记录下，嘿嘿~~~">
+<meta property="og:updated_time" content="2016-06-17T04:12:12.330Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WPF应用程序如何重启当前APP？">
-<meta name="twitter:description" content="一次项目应用中用到这个，趁机规整下
-Restart the current process">
+<meta name="twitter:title" content="C语言堆（heap）与栈（stack）的区别">
+<meta name="twitter:description" content="C语言中的堆和栈，以前用过，但也就稀里糊涂的用了，理论上却是模糊的很。。。今天呢，终于彻底搞明白了，简单记录下，嘿嘿~~~">
 
 
 
@@ -87,7 +84,7 @@ Restart the current process">
   };
 </script>
 
-  <title> WPF应用程序如何重启当前APP？ | Eye on World </title>
+  <title> C语言堆（heap）与栈（stack）的区别 | Eye on World </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -225,7 +222,7 @@ Restart the current process">
             
             
               
-                WPF应用程序如何重启当前APP？
+                C语言堆（heap）与栈（stack）的区别
               
             
           </h1>
@@ -237,8 +234,8 @@ Restart the current process">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-12-21T09:45:01+08:00" content="2015-12-21">
-              2015-12-21
+            <time itemprop="dateCreated" datetime="2016-06-17T10:17:41+08:00" content="2016-06-17">
+              2016-06-17
             </time>
           </span>
 
@@ -251,8 +248,8 @@ Restart the current process">
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/WPF/" itemprop="url" rel="index">
-                    <span itemprop="name">WPF</span>
+                  <a href="/categories/C-C/" itemprop="url" rel="index">
+                    <span itemprop="name">C/C++</span>
                   </a>
                 </span>
 
@@ -282,33 +279,50 @@ Restart the current process">
       
 
       
-        <p>一次项目应用中用到这个，趁机规整下</p>
-<h2 id="Restart_the_current_process"><a href="#Restart_the_current_process" class="headerlink" title="Restart the current process"></a>Restart the current process</h2><a id="more"></a>
-<h3 id="Method_1"><a href="#Method_1" class="headerlink" title="Method 1"></a>Method 1</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">System.Windows.Forms.Application.Restart();</span><br><span class="line">Application.Current.Shutdown();</span><br></pre></td></tr></table></figure>
-<h3 id="Method_2"><a href="#Method_2" class="headerlink" title="Method 2"></a>Method 2</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">System.Reflection. Assembly.GetEntryAssembly();</span><br><span class="line">string startpath = System.IO. Directory.GetCurrentDirectory();</span><br><span class="line">System.Diagnostics. Process.Start(startpath + <span class="string">"\\eg.exe"</span> );</span><br><span class="line">Application.Current.Shutdown();</span><br></pre></td></tr></table></figure>
-<h3 id="Method_3"><a href="#Method_3" class="headerlink" title="Method 3"></a>Method 3</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">System.Diagnostics. Process p = new System.Diagnostics. Process();</span><br><span class="line">p.StartInfo.FileName = System. AppDomain.CurrentDomain.BaseDirectory + <span class="string">"eg.exe"</span> ;</span><br><span class="line">p.StartInfo.UseShellExecute = <span class="literal">false</span>;</span><br><span class="line">p.Start();</span><br><span class="line">Application.Current.Shutdown();</span><br></pre></td></tr></table></figure>
+        <p>C语言中的堆和栈，以前用过，但也就稀里糊涂的用了，理论上却是模糊的很。。。今天呢，终于彻底搞明白了，简单记录下，嘿嘿~~~<br><a id="more"></a></p>
+<h2 id="u7B80_u4E66"><a href="#u7B80_u4E66" class="headerlink" title="简书"></a>简书</h2><p>C语言中动态区域由栈和堆两部分组成。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">栈由编译器自动分配释放，存放形参、局部变量等值，底层的数据结构是LIFO（先进后出）的栈；</span><br><span class="line">堆由程序员分配释放，如果一不小心忘记了释放申请的内存，可能引起内存泄漏</span><br></pre></td></tr></table></figure></p>
+<h2 id="u533A_u522B"><a href="#u533A_u522B" class="headerlink" title="区别"></a>区别</h2><h3 id="u7533_u8BF7_u65B9_u5F0F"><a href="#u7533_u8BF7_u65B9_u5F0F" class="headerlink" title="申请方式"></a>申请方式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">栈由编译器自动分配，存放形参、局部变量等；</span><br><span class="line">堆由程序员调用malloc, realloc, calloc申请，并用free释放</span><br></pre></td></tr></table></figure>
+<h3 id="u7533_u8BF7_u6548_u7387"><a href="#u7533_u8BF7_u6548_u7387" class="headerlink" title="申请效率"></a>申请效率</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">栈由系统自动分配，速度快，程序员无法控制；</span><br><span class="line">堆由程序员申请、释放，容易产生碎片，效率低于栈，但灵活度高</span><br></pre></td></tr></table></figure>
+<h3 id="u7A7A_u95F4_u5927_u5C0F"><a href="#u7A7A_u95F4_u5927_u5C0F" class="headerlink" title="空间大小"></a>空间大小</h3><h4 id="u6808"><a href="#u6808" class="headerlink" title="栈"></a>栈</h4><p>栈在Linux内存区域中由高地址向低地址生长，大小固定，地址是连续的；当栈的剩余空间不足时，会提示Overflow；</p>
+<h4 id="u5806"><a href="#u5806" class="headerlink" title="堆"></a>堆</h4><p>堆在内存区域中由低地址向高地址生长，是不连续的内存区域；堆的大小受制于系统有效的虚拟内存，如果忘记free累积达到内存上限，就会出现内存泄漏</p>
+<h3 id="u5206_u914D_u65B9_u5F0F"><a href="#u5206_u914D_u65B9_u5F0F" class="headerlink" title="分配方式"></a>分配方式</h3><h4 id="u6808-1"><a href="#u6808-1" class="headerlink" title="栈"></a>栈</h4><p>栈是连续的，只要栈的剩余空间大于所申请的空间，系统将为程序分配空间，否则会报Overflow；</p>
+<h4 id="u5806-1"><a href="#u5806-1" class="headerlink" title="堆"></a>堆</h4><p>堆收到程序申请时，操作系统有一个记录空闲内存地址的链表，会遍历该链表，寻找第一个空间大于所申请空间的堆节点，然后将该节点从空闲链表中删除，并将该节点的空间分配给程序。另外，如果找到的堆节点大小不一定正好等于申请的大小，系统会自动将多余的部分重新放入空闲链表中。反复的申请/释放，势必会生成大量的内存空间碎片，使程序效率降低</p>
+<h3 id="u5B58_u50A8_u5185_u5BB9"><a href="#u5B58_u50A8_u5185_u5BB9" class="headerlink" title="存储内容"></a>存储内容</h3><h4 id="u6808-2"><a href="#u6808-2" class="headerlink" title="栈"></a>栈</h4><p>压栈：当函数调用时，第一个进栈的是主函数中下一条语句的地址；然后是函数的各个参数，参数是从右往左入栈的；然后是函数中的局部变量；静态变量不入栈。<br>出栈：当本次函数调用结束后，局部变量先出栈，然后是参数，最后是栈顶指针所指向的、主函数中的下一条指令，程序由该点继续执行。</p>
+<h4 id="u5806-2"><a href="#u5806-2" class="headerlink" title="堆"></a>堆</h4><p>往往会在堆的头部用一个字节存放堆的大小，以利于free函数的释放</p>
 
       
     </div>
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/LIFO/" rel="tag">#LIFO</a>
+          
+            <a href="/tags/Overflow/" rel="tag">#Overflow</a>
+          
+            <a href="/tags/内存泄漏/" rel="tag">#内存泄漏</a>
+          
+            <a href="/tags/堆/" rel="tag">#堆</a>
+          
+            <a href="/tags/栈/" rel="tag">#栈</a>
+          
+            <a href="/tags/空间碎片/" rel="tag">#空间碎片</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/12/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2016/06/data-store/" rel="next" title="Android数据存储">
+                <i class="fa fa-chevron-left"></i> Android数据存储
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/12/RESTful-API/" rel="prev" title="RESTful API">
-                RESTful API <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -432,7 +446,7 @@ Restart the current process">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Restart_the_current_process"><span class="nav-number">1.</span> <span class="nav-text">Restart the current process</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Method_1"><span class="nav-number">1.1.</span> <span class="nav-text">Method 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Method_2"><span class="nav-number">1.2.</span> <span class="nav-text">Method 2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Method_3"><span class="nav-number">1.3.</span> <span class="nav-text">Method 3</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#u7B80_u4E66"><span class="nav-number">1.</span> <span class="nav-text">简书</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u533A_u522B"><span class="nav-number">2.</span> <span class="nav-text">区别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u7533_u8BF7_u65B9_u5F0F"><span class="nav-number">2.1.</span> <span class="nav-text">申请方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u7533_u8BF7_u6548_u7387"><span class="nav-number">2.2.</span> <span class="nav-text">申请效率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u7A7A_u95F4_u5927_u5C0F"><span class="nav-number">2.3.</span> <span class="nav-text">空间大小</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#u6808"><span class="nav-number">2.3.1.</span> <span class="nav-text">栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u5806"><span class="nav-number">2.3.2.</span> <span class="nav-text">堆</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5206_u914D_u65B9_u5F0F"><span class="nav-number">2.4.</span> <span class="nav-text">分配方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#u6808-1"><span class="nav-number">2.4.1.</span> <span class="nav-text">栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u5806-1"><span class="nav-number">2.4.2.</span> <span class="nav-text">堆</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5B58_u50A8_u5185_u5BB9"><span class="nav-number">2.5.</span> <span class="nav-text">存储内容</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#u6808-2"><span class="nav-number">2.5.1.</span> <span class="nav-text">栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u5806-2"><span class="nav-number">2.5.2.</span> <span class="nav-text">堆</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
