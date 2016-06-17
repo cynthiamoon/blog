@@ -57,19 +57,19 @@
 
 
 
-<meta name="description" content="有次面试的时候，亲爱的面试官问我：Android数据存储中你都用到了哪些？我：。。。没关系（强大的自我恢复能力，哈哈），今天就follow我一起来汇总下吧">
+<meta name="description" content="有次面试的时候，亲爱的面试官问我：Android数据存储中你都用到了哪些？我：。。。没关系（强大的自我恢复能力，哈哈），今天就follow me一起来汇总下吧">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android数据存储">
 <meta property="og:url" content="http://cynthiaty.github.io/2016/06/data-store/index.html">
 <meta property="og:site_name" content="Eye on World">
-<meta property="og:description" content="有次面试的时候，亲爱的面试官问我：Android数据存储中你都用到了哪些？我：。。。没关系（强大的自我恢复能力，哈哈），今天就follow我一起来汇总下吧">
+<meta property="og:description" content="有次面试的时候，亲爱的面试官问我：Android数据存储中你都用到了哪些？我：。。。没关系（强大的自我恢复能力，哈哈），今天就follow me一起来汇总下吧">
 <meta property="og:image" content="http://cynthiaty.github.io/images/file_mode.png">
 <meta property="og:image" content="http://cynthiaty.github.io/images/file_method.png">
 <meta property="og:image" content="http://cynthiaty.github.io/images/file_sd.png">
-<meta property="og:updated_time" content="2016-06-16T04:21:57.926Z">
+<meta property="og:updated_time" content="2016-06-17T02:15:26.196Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android数据存储">
-<meta name="twitter:description" content="有次面试的时候，亲爱的面试官问我：Android数据存储中你都用到了哪些？我：。。。没关系（强大的自我恢复能力，哈哈），今天就follow我一起来汇总下吧">
+<meta name="twitter:description" content="有次面试的时候，亲爱的面试官问我：Android数据存储中你都用到了哪些？我：。。。没关系（强大的自我恢复能力，哈哈），今天就follow me一起来汇总下吧">
 
 
 
@@ -282,7 +282,7 @@
       
 
       
-        <p>有次面试的时候，亲爱的面试官问我：Android数据存储中你都用到了哪些？我：。。。没关系（强大的自我恢复能力，哈哈），今天就follow我一起来汇总下吧<br><a id="more"></a></p>
+        <p>有次面试的时候，亲爱的面试官问我：Android数据存储中你都用到了哪些？我：。。。没关系（强大的自我恢复能力，哈哈），今天就follow me一起来汇总下吧<br><a id="more"></a></p>
 <h2 id="Shared_Preferences"><a href="#Shared_Preferences" class="headerlink" title="Shared Preferences"></a>Shared Preferences</h2><p>SharedPreferences类提供了一个基本的框架，能够使我们保存和检索私有键值对，可以保存的类型有：boolean，float，int，long，String，这些数据将会永久保存</p>
 <h3 id="SharedPreferences_u5B58_u50A8_u7684_u6838_u5FC3_u539F_u7406"><a href="#SharedPreferences_u5B58_u50A8_u7684_u6838_u5FC3_u539F_u7406" class="headerlink" title="SharedPreferences存储的核心原理"></a>SharedPreferences存储的核心原理</h3><p>它的本质是XML文件（存储key-value键值对数据），通常用来存储一些简单的配置信息；其存储位置在/data/data/&lt;包名&gt;/shared_prefs目录下</p>
 <h3 id="SharedPreferences_u5B58_u50A8_u7684_u5B9E_u73B0"><a href="#SharedPreferences_u5B58_u50A8_u7684_u5B9E_u73B0" class="headerlink" title="SharedPreferences存储的实现"></a>SharedPreferences存储的实现</h3><p>SharedPreferences对象本身只能获取数据而不支持存储和修改，存储修改是通过Editor对象实现<br>1、根据Context获取SharedPreferences对象<br>2、利用edit()方法获取Editor对象<br>3、通过Editor对象存储key-value键值对数据<br>4、通过commit()方法提交数据<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">public class MainActivity extends Activity &#123;     </span><br><span class="line"> @Override </span><br><span class="line">     public void onCreate(Bundle savedInstanceState) &#123; </span><br><span class="line">        super.onCreate(savedInstanceState); </span><br><span class="line">        <span class="built_in">set</span>ContentView(R.layout.main); </span><br><span class="line"></span><br><span class="line">        //获取SharedPreferences对象 </span><br><span class="line">        Context mContext = MainActivity.this;        </span><br><span class="line">        SharedPreferences sp = mContext.getSharedPreferences(<span class="string">"SP"</span>, MODE_PRIVATE); </span><br><span class="line">		</span><br><span class="line">        //存入数据 </span><br><span class="line">        Editor editor = sp.edit(); </span><br><span class="line">        editor.putString(<span class="string">"STRING_KEY"</span>, <span class="string">"string"</span>); </span><br><span class="line">        editor.putInt(<span class="string">"INT_KEY"</span>, <span class="number">0</span>); </span><br><span class="line">        editor.putBoolean(<span class="string">"BOOLEAN_KEY"</span>, <span class="literal">true</span>); </span><br><span class="line">        editor.commit(); </span><br><span class="line"></span><br><span class="line">        //读取数据</span><br><span class="line">        Log.d(<span class="string">"SP"</span>, sp.getString(<span class="string">"STRING_KEY"</span>, <span class="string">"none"</span>));  </span><br><span class="line">     &#125; </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
