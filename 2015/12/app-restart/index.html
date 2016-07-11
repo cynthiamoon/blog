@@ -57,19 +57,16 @@
 
 
 
-<meta name="description" content="一次项目应用中用到这个，趁机规整下
-Restart the current process">
+<meta name="description" content="一次项目应用中用到这个，趁机规整下">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WPF应用程序如何重启当前APP？">
 <meta property="og:url" content="http://cynthiaty.github.io/2015/12/app-restart/index.html">
 <meta property="og:site_name" content="Eye on World">
-<meta property="og:description" content="一次项目应用中用到这个，趁机规整下
-Restart the current process">
-<meta property="og:updated_time" content="2016-06-16T04:22:02.489Z">
+<meta property="og:description" content="一次项目应用中用到这个，趁机规整下">
+<meta property="og:updated_time" content="2016-07-11T04:33:25.170Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WPF应用程序如何重启当前APP？">
-<meta name="twitter:description" content="一次项目应用中用到这个，趁机规整下
-Restart the current process">
+<meta name="twitter:description" content="一次项目应用中用到这个，趁机规整下">
 
 
 
@@ -289,9 +286,8 @@ Restart the current process">
       
 
       
-        <p>一次项目应用中用到这个，趁机规整下</p>
-<h2 id="Restart_the_current_process"><a href="#Restart_the_current_process" class="headerlink" title="Restart the current process"></a>Restart the current process</h2><a id="more"></a>
-<h3 id="Method_1"><a href="#Method_1" class="headerlink" title="Method 1"></a>Method 1</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">System.Windows.Forms.Application.Restart();</span><br><span class="line">Application.Current.Shutdown();</span><br></pre></td></tr></table></figure>
+        <p>一次项目应用中用到这个，趁机规整下<br><a id="more"></a></p>
+<h2 id="Restart_the_current_process"><a href="#Restart_the_current_process" class="headerlink" title="Restart the current process"></a>Restart the current process</h2><h3 id="Method_1"><a href="#Method_1" class="headerlink" title="Method 1"></a>Method 1</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">System.Windows.Forms.Application.Restart();</span><br><span class="line">Application.Current.Shutdown();</span><br></pre></td></tr></table></figure>
 <h3 id="Method_2"><a href="#Method_2" class="headerlink" title="Method 2"></a>Method 2</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">System.Reflection. Assembly.GetEntryAssembly();</span><br><span class="line">string startpath = System.IO. Directory.GetCurrentDirectory();</span><br><span class="line">System.Diagnostics. Process.Start(startpath + <span class="string">"\\eg.exe"</span> );</span><br><span class="line">Application.Current.Shutdown();</span><br></pre></td></tr></table></figure>
 <h3 id="Method_3"><a href="#Method_3" class="headerlink" title="Method 3"></a>Method 3</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">System.Diagnostics. Process p = new System.Diagnostics. Process();</span><br><span class="line">p.StartInfo.FileName = System. AppDomain.CurrentDomain.BaseDirectory + <span class="string">"eg.exe"</span> ;</span><br><span class="line">p.StartInfo.UseShellExecute = <span class="literal">false</span>;</span><br><span class="line">p.Start();</span><br><span class="line">Application.Current.Shutdown();</span><br></pre></td></tr></table></figure>
 
@@ -387,7 +383,7 @@ Restart the current process">
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
